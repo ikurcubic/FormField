@@ -1,5 +1,9 @@
-The basic idea is simple: make form creation simpler. I'm tired of
-creating form fields, like this:
+The basic idea is simple: make form creation simpler.
+
+[View a quick visual
+demonstration.](https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/formfield-sample.mp4)
+
+I'm tired of creating form fields, like this:
 
 ```html
 <div class="form-group">
