@@ -34,17 +34,4 @@ class FormFieldTest extends TestCase {
 
         $this->assertContains('type="email"', $html);
     }
-
-    public function test_can_override_defaults()
-    {
-        FormField::setDefaults([
-            'wrapper' => 'p',
-            'wrapperClass' => 'yay-wrapper'
-        ]);
-
-        $html = FormField::username();
-
-        $this->assertContains("<p class='yay-wrapper'>", $html);
-        $this->assertContains("</p>", $html);
-    }
 }
