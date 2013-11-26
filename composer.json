@@ -1,6 +1,7 @@
 {
     "name": "way/form",
-    "description": "",
+    "description": "Make form handling in Laravel simpler.",
+    "keywords": ["laravel", "forms"],
     "authors": [
         {
             "name": "Jeffrey Way",
