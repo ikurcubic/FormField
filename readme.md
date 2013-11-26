@@ -73,6 +73,10 @@ That's it! You're all set to go. Try it out in a view:
 {{ FormField::address(['label' => 'Your Address']) }}
 ```
 
+That will produce:
+
+![output](https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/formfield-ss.png)
+
 If you want to override the defaults, you can publish the config, like
 so:
 
