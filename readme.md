@@ -18,7 +18,7 @@ Instead, with this `FormField` class, you can simply do:
 {{ FormField::username() }}
 ```
 
-That will then produce the necessary HTML. It uses dynamic methods to
+That will then produce the necessary (Bootstrap-friendly, by default) HTML. It uses dynamic methods to
 simplify the process a bit.
 
 While it will do its best to figure out what kind of input you want, you
@@ -73,7 +73,8 @@ That's it! You're all set to go. Try it out in a view:
 {{ FormField::address(['label' => 'Your Address']) }}
 ```
 
-That will produce:
+That will produce the following. Though it's Twitter Bootstrap friendly
+by default, you can of course customize the class names as you wish.
 
 ![output](https://dl.dropboxusercontent.com/u/774859/GitHub-Repos/formfield-ss.png)
 
