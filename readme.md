@@ -37,6 +37,12 @@ This will produce:
 </div>
 ```
 
+So, yeah, it's just a helper class. If your forms require a huge amount
+of customization, this probably won't work for you. But for simple
+forms, it'll do the trick nicely!
+
+(It also makes Laracasts demos way easier to setup. :)
+
 ## Usage
 
 To try this out:
