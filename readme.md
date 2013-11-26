@@ -1,7 +1,3 @@
-This is just a Laravel forms idea, whipped together in a half-hour. Play around with
-it, if you wish. If people enjoy it, I'll clean it up, make it more
-flexible, and turn it into a package.
-
 The basic idea is simple: make form creation simpler. I'm tired of
 creating form fields, like this:
 
@@ -35,32 +31,27 @@ Okay, that's it. Like I said, just an idea. Good, bad, lame?
 
 To try this out:
 
-1. Download the `FormField` class
-2. Add it anywhere you want. Maybe `app/FormField.php`.
-3. Autoload that class from your `composer.json` file:
+Begin by installing the package through Composer.
 
-It might look like this:
+    require: {
+        "way/form": "dev-master"
+    }
 
-	"autoload": {
-		"classmap": [
-			// ...
-			"app/FormField.php"
-		]
-	}
+Next, add the service provider to `app/config/app.php`.
 
-Finally, `composer dump-autoload`, and the class is ready to toy with.
-Try it out in a view:
+    'providers' => [
+        // ..
+        'Way\Form\FormServiceProvider'
+    ]
+
+That's it! You're all set to go. Try it out in a view:
 
     {{ FormField::username() }}
     {{ FormField::email() }}
     {{ FormField::custom(['type' => 'textarea']) }}
     {{ FormField::address(['label' => 'Your Address']) }}
 
-If you want to override the defaults, you can, somewhere in your app,
-call:
+If you want to override the defaults, you can, publish the config, like
+so:
 
-    FormField::setDefaults([
-        'wrapper' => 'li',
-        'wrapperClass' => 'my-form-field',
-        'inputClass' => 'class-to-be-put-on-input'
-    ]);
+    php artisan config:publish way/form
