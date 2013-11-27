@@ -45,31 +45,49 @@ class FormField {
      */
     protected function createField($name, $args)
     {
-        // If the user specifies an input type,
-        // we'll just use that. Otherwise, we'll take
-        // a best guess approach, falling back to text
+        // If the user specifies an input type, we'll just use that.
+        // Otherwise, we'll take a best guess approach.
         $type = array_get($args, 'type') ?: $this->guessInputType($name);
-
-        // Next, again, the user can specify a custom label
-        // Or, we'll prettify the provided name as best as possible.
-        $label = array_get($args, 'label') ?: ($this->prettifyFieldName($name) . ': ');
 
         // We'll default to Bootstrap-friendly input class names
         $args = array_merge(['class' => Config::get('form::inputClass')], $args);
 
-        // Now, let's build and return the form field HTML
-        $field = Form::label($name, $label);
+        $field = $this->createLabel($args, $name);
 
-        if ($type == 'password')
-        {
-            $field .= Form::password($name, $args);
-        }
-        else
-        {
-            $field .= Form::$type($name, null, $args);
-        }
+        unset($args['label']);
 
-        return $field;
+        return $field .= $this->createInput($type, $args, $name);
+    }
+
+    /**
+     * Handle of creation of the label
+     *
+     * @param array $args
+     * @param string $name
+     */
+    protected function createLabel($args, $name)
+    {
+        $label = array_get($args, 'label');
+
+        // If no label was provided, let's do our best to construct
+        // a label from the method name.
+        is_null($label) and $label = $this->prettifyFieldName($name) . ': ';
+
+        return $label ? Form::label($name, $label) : '';
+    }
+
+    /**
+     * Manage creation of input
+     *
+     * @param string $type
+     * @param array $args
+     * @param string $name
+     */
+    protected function createInput($type, $args, $name)
+    {
+        return $type == 'password'
+            ? Form::password($name, $args)
+            : Form::$type($name, null, $args);
     }
 
     /**
@@ -93,6 +111,12 @@ class FormField {
         return ucwords(preg_replace('/(?<=\w)(?=[A-Z])/', " $1", $name));
     }
 
+    /**
+     * Handle dynamic method calls
+     *
+     * @param string $name
+     * @param array $args
+     */
     public static function __callStatic($name, $args)
     {
         $args = empty($args) ? [] : $args[0];

@@ -28,6 +28,13 @@ class FormFieldTest extends TestCase {
         $this->assertContains('label for="someField">Some Amazing Field</label>', $html);
     }
 
+    public function test_label_can_be_set_to_null()
+    {
+        $html = FormField::someField(['label' => false]);
+
+        $this->assertNotContains('label', $html);
+    }
+
     public function test_recognizes_basic_input_names_and_sets_input_type()
     {
         $html = FormField::email();
