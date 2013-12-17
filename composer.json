@@ -5,7 +5,7 @@
     "authors": [
         {
             "name": "Jeffrey Way",
-            "email": "jeffrey@laracasts.com"
+            "email": "jeffrey@jeffrey-way.com"
         }
     ],
     "require": {
@@ -17,5 +17,6 @@
             "Way\\Form": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
