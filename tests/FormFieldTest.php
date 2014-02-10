@@ -6,7 +6,7 @@ class FormFieldTest extends TestCase {
     {
         $html = FormField::username();
 
-        $this->assertContains('<div class=\'form-group\'>', $html);
+        $this->assertContains('<div class="form-group">', $html);
         $this->assertContains('<label for="username" class="control-label">Username: </label>', $html);
         $this->assertContains('<input class="form-control" name="username" type="text" id="username">', $html);
     }

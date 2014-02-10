@@ -34,7 +34,7 @@ class FormField {
         $wrapper = Config::get('form::wrapper');
         $wrapperClass = Config::get('form::wrapperClass');
 
-        return "<$wrapper class='$wrapperClass'>{{FIELD}}</$wrapper>";
+        return '<' . $wrapper . ' class="' . $wrapperClass . '">{{FIELD}}</' . $wrapper . '>';
     }
 
     /**
