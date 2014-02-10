@@ -7,7 +7,7 @@ class FormFieldTest extends TestCase {
         $html = FormField::username();
 
         $this->assertContains('<div class=\'form-group\'>', $html);
-        $this->assertContains('<label for="username">Username: </label>', $html);
+        $this->assertContains('<label for="username" class="control-label">Username: </label>', $html);
         $this->assertContains('<input class="form-control" name="username" type="text" id="username">', $html);
     }
 
@@ -25,7 +25,7 @@ class FormFieldTest extends TestCase {
     {
         $html = FormField::someField(['label' => 'Some Amazing Field']);
 
-        $this->assertContains('label for="someField">Some Amazing Field</label>', $html);
+        $this->assertContains('label for="someField" class="control-label">Some Amazing Field</label>', $html);
     }
 
     public function test_label_can_be_set_to_null()

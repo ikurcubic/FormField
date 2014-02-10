@@ -73,7 +73,7 @@ class FormField {
         // a label from the method name.
         is_null($label) and $label = $this->prettifyFieldName($name) . ': ';
 
-        return $label ? Form::label($name, $label) : '';
+        return $label ? Form::label($name, $label, array('class' => 'control-label')) : '';
     }
 
     /**
