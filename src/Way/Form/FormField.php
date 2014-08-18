@@ -31,6 +31,11 @@ class FormField {
      */
     protected function createWrapper()
     {
+        if(Config::get('form::wrap')=='false')
+        {
+            return "{{FIELD}}";
+        }
+
         $wrapper = Config::get('form::wrapper');
         $wrapperClass = Config::get('form::wrapperClass');
 
@@ -67,6 +72,11 @@ class FormField {
      */
     protected function createLabel($args, $name)
     {
+        if(Config::get('form::wrap')=='false')
+        {
+            return;//"{{FIELD}}";
+        }
+
         $label = array_get($args, 'label');
 
         // If no label was provided, let's do our best to construct
